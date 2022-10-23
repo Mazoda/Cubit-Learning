@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
-  int teamAPoints = 0;
-  int teamBPoints = 0;
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CounterCubit, CounterState>(builder: (context, state) {
@@ -27,13 +24,13 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       const Text(
-                        'Team E',
+                        'Team A',
                         style: TextStyle(
                           fontSize: 32,
                         ),
                       ),
                       Text(
-                        '$teamAPoints',
+                        '${BlocProvider.of<CounterCubit>(context).teamAPoints}',
                         style: const TextStyle(
                           fontSize: 150,
                         ),
@@ -114,7 +111,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '$teamBPoints',
+                        '${BlocProvider.of<CounterCubit>(context).teamBPoints}',
                         style: const TextStyle(
                           fontSize: 150,
                         ),
@@ -197,11 +194,6 @@ class HomePage extends StatelessWidget {
         ),
       );
     }, listener: ((context, state) {
-      if (state is CounterAIncrementState) {
-        teamAPoints = BlocProvider.of<CounterCubit>(context).teamAPoints;
-      } else {
-        teamBPoints = BlocProvider.of<CounterCubit>(context).teamBPoints;
-      }
     }));
   }
 }
