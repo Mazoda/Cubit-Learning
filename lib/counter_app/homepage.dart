@@ -1,5 +1,6 @@
-import 'package:blocapp/Cubit/counter_cubit.dart';
-import 'package:blocapp/Cubit/counter_state.dart';
+
+import 'package:blocapp/counter_app/counter_cubit.dart';
+import 'package:blocapp/counter_app/counter_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
