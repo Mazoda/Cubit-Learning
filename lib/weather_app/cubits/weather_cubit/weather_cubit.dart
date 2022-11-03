@@ -4,7 +4,7 @@ import 'package:blocapp/weather_app/services/weather_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
-  WeatherCubit(super.initialState, this.weatherService);
+  WeatherCubit(this.weatherService) : super(WeatherIsLoadig());
   WeatherService weatherService;
   void getWeather({required String cityName}) async {
     emit(WeatherIsLoadig());
